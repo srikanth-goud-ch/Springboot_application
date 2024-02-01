@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Example</title>
+</head>
+<body>
+
+<h1>Hello everyone,this is Spring Boot Example</h1>
+
+<div id="result"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Make an AJAX request to the Spring Boot endpoint
+        fetch('http://localhost:9090/hello') // Change the port if you modified it in your Spring Boot app
+            .then(response => response.text())
+            .then(data => {
+                // Display the response in the 'result' div
+                document.getElementById('result').innerText = data;
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error fetching data:', error);
+            });
+    });
+</script>
+
+</body>
+</html>
